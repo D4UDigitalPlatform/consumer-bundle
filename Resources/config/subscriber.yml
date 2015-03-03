@@ -1,0 +1,23 @@
+parameters:
+    itkg_consumer.subscriber.cache.class: Itkg\Consumer\Listener\CacheListener
+    itkg_consumer.subscriber.logger.class: Itkg\Consumer\Listener\LoggerListener
+    itkg_consumer.subscriber.deserializer.class: Itkg\Consumer\Listener\DeserializerListener
+    itkg_consumer.subscriber.authentication.class: Itkg\Consumer\Listener\AuthenticationListener
+
+services:
+    itkg_consumer.subscriber.cache:
+        class: %itkg_consumer.subscriber.cache.class%
+        tags:
+            - { name: kernel.event_subscriber }
+    itkg_consumer.subscriber.logger:
+        class: %itkg_consumer.subscriber.logger.class%
+        tags:
+            - { name: kernel.event_subscriber }
+    itkg_consumer.subscriber.deserializer:
+        class: %itkg_consumer.subscriber.deserializer.class%
+        tags:
+            - { name: kernel.event_subscriber }
+    itkg_consumer.subscriber.authentication:
+        class: %itkg_consumer.subscrbier.authentication.class%
+        tags:
+            - { name: kernel.event_subscriber }
