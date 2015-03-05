@@ -17,6 +17,8 @@ class ItkgConsumerExtensionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('MyLoggerListener', $this->container->getParameter('itkg_consumer.subscriber.logger.class'));
         $this->assertEquals('MyDeserializerListener', $this->container->getParameter('itkg_consumer.subscriber.deserializer.class'));
         $this->assertEquals('MyAuthenticationListener', $this->container->getParameter('itkg_consumer.subscriber.authentication.class'));
+        $this->assertEquals('MyAccessListener', $this->container->getParameter('itkg_consumer.subscriber.access.class'));
+        $this->assertEquals('MyConfigListener', $this->container->getParameter('itkg_consumer.subscriber.config.class'));
     }
 
     protected function loadContainer()
@@ -44,6 +46,10 @@ subscriber:
         class: MyDeserializerListener
     authentication:
         class: MyAuthenticationListener
+    access:
+        class: MyAccessListener
+    config:
+        class: MyConfigListener
 
 EOF;
         $parser = new Parser();
