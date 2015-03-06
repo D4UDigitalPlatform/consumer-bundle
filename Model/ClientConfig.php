@@ -35,6 +35,11 @@ abstract class ClientConfig
     protected $password;
 
     /**
+     * @var int
+     */
+    protected $timeout;
+
+    /**
      * Array representation of service config
      *
      * @return array
@@ -47,7 +52,8 @@ abstract class ClientConfig
             'proxy_host'     => $this->proxyHost,
             'proxy_port'     => $this->proxyPort,
             'proxy_login'    => $this->proxyLogin,
-            'proxy_password' => $this->proxyPassword
+            'proxy_password' => $this->proxyPassword,
+            'timeout'        => $this->timeout
         );
     }
 
@@ -171,5 +177,23 @@ abstract class ClientConfig
         return $this->proxyPort;
     }
 
+    /**
+     * @return int
+     */
+    public function getTimeout()
+    {
+        return $this->timeout;
+    }
 
+    /**
+     * @param $timeout
+     *
+     * @return $this
+     */
+    public function setTimeout($timeout)
+    {
+        $this->timeout = $timeout;
+
+        return $this;
+    }
 }

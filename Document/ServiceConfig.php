@@ -9,10 +9,8 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 /**
  * Class ServiceConfig
  *
- * @ODM\Document(
- *   collection="service_config",
- *   repositoryClass="Itkg\ConsumerBundle\Repository\ServiceConfigRepository"
- * )
+ * @ODM\Document(repositoryClass="Itkg\ConsumerBundle\Repository\ServiceConfigRepository")
+ *
  */
 class ServiceConfig extends BaseServiceConfig
 {
@@ -40,7 +38,7 @@ class ServiceConfig extends BaseServiceConfig
     /**
      * @var string
      *
-     * @ODM\Field(type="integer")
+     * @ODM\Field(type="int")
      */
     protected $cacheTtl;
 

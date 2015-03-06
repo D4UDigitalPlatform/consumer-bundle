@@ -1,0 +1,8 @@
+parameters:
+    itkg_consumer.manager.service.class: Itkg\ConsumerBundle\Manager\ServiceManager
+
+services:
+    itkg_consumer.manager.service:
+        class: %itkg_consumer.manager.service.class%
+        arguments:
+            - @itkg_consumer.repository.service_config

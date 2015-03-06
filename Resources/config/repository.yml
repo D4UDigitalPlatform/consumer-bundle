@@ -6,3 +6,5 @@ services:
         class: %itkg_consumer.repository.service_config.class%
         factory_service: doctrine.odm.mongodb.document_manager
         factory_method: getRepository
+        arguments:
+            - %itkg_consumer.model.service_config.class%

@@ -42,7 +42,7 @@ abstract class ServiceConfig
     public function toOptions()
     {
         return array(
-            'response_type' => $this->responseType,
+            'response_type'   => $this->responseType,
             'response_format' => $this->responseFormat,
             'cache_ttl'       => $this->cacheTtl,
             'disabled'        => $this->disabled
@@ -169,7 +169,4 @@ abstract class ServiceConfig
     {
         return $this->responseType;
     }
-
-
 }
-

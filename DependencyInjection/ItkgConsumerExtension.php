@@ -25,9 +25,15 @@ class ItkgConsumerExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+
         $loader->load('subscriber.yml');
         $loader->load('repository.yml');
+        $loader->load('manager.yml');
+        $loader->load('form.yml');
+        $loader->load('model.yml');
+
         if (isset($config['subscriber'])) {
+
             /* Override subscribers class */
             foreach ($config['subscriber'] as $key => $value) {
                 $container->setParameter(

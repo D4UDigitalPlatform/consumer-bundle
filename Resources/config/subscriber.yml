@@ -19,15 +19,15 @@ services:
         tags:
             - { name: kernel.event_subscriber }
     itkg_consumer.subscriber.authentication:
-        class: %itkg_consumer.subscrbier.authentication.class%
+        class: %itkg_consumer.subscriber.authentication.class%
         tags:
             - { name: kernel.event_subscriber }
     itkg_consumer.subscriber.access:
-            class: %itkg_consumer.subscrbier.access.class%
+            class: %itkg_consumer.subscriber.access.class%
             tags:
                 - { name: kernel.event_subscriber }
     itkg_consumer.subscriber.config:
-            class: %itkg_consumer.subscrbier.config.class%
+            class: %itkg_consumer.subscriber.config.class%
             arguments:
                 - @itkg_consumer.repository.service_config
             tags:

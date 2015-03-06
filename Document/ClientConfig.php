@@ -3,14 +3,12 @@
 namespace Itkg\ConsumerBundle\Document;
 
 use Itkg\ConsumerBundle\Model\ClientConfig as BaseClientConfig;
+use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 
 /**
  * Class ClientConfig
  *
- * @ODM\Document(
- *   collection="client_config",
- *   repositoryClass="Itkg\ConsumerBundle\Repository\ClientConfigRepository"
- * )
+ * @ODM\EmbeddedDocument
  */
 class ClientConfig extends BaseClientConfig
 {
