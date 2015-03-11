@@ -4,6 +4,7 @@ namespace Itkg\ConsumerBundle\Manager;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Itkg\Consumer\Service\Service;
+use Itkg\ConsumerBundle\Model\ServiceConfig;
 
 /**
  * @author Pascal DENIS <pascal.denis@businessdecision.com>
@@ -23,9 +24,9 @@ interface ServiceManagerInterface
     public function findServices();
 
     /**
-     * @param Service $service
+     * @param ServiceConfig $service
      */
-    public function updateService(Service $service);
+    public function updateServiceConfig(ServiceConfig $service);
 
     /**
      * @param string $key
@@ -33,4 +34,16 @@ interface ServiceManagerInterface
      * @return Service
      */
     public function findService($key);
+
+    /**
+     * @param $key
+     *
+     * @return ServiceConfig
+     */
+    public function findServiceConfig($key);
+
+    /**
+     * @return ServiceConfig
+     */
+    public function createNewServiceConfig();
 }

@@ -4,12 +4,26 @@ namespace Itkg\ConsumerBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * @author Pascal DENIS <pascal.denis@businessdecision.com>
  */
 class ServiceConfigType extends AbstractType
 {
+    /**
+     * @var string
+     */
+    private $class;
+
+    /**
+     * @param string $class
+     */
+    public function __construct($class)
+    {
+        $this->class = $class;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -20,7 +34,7 @@ class ServiceConfigType extends AbstractType
         $builder->add('responseFormat');
         $builder->add('cacheTtl');
         $builder->add('disabled', 'checkbox');
-        $builder->add('clientConfig', 'client_config_type');
+        $builder->add('clientConfig', 'itkg_consumer_client_config');
     }
 
     /**
@@ -30,6 +44,16 @@ class ServiceConfigType extends AbstractType
      */
     public function getName()
     {
-        return 'service_config_type';
+        return 'itkg_consumer_service_config';
+    }
+
+    /**
+     * @param OptionsResolverInterface $resolver
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => $this->class,
+        ));
     }
 }

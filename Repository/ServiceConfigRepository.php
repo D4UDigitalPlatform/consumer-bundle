@@ -3,7 +3,7 @@
 namespace Itkg\ConsumerBundle\Repository;
 
 use Doctrine\ODM\MongoDB\DocumentRepository;
-use Itkg\ConsumerBundle\Document\ServiceConfig;
+use Itkg\ConsumerBundle\Model\ServiceConfig;
 
 /**
  * Class ServiceConfigRepository
@@ -21,5 +21,15 @@ class ServiceConfigRepository extends DocumentRepository implements ServiceConfi
     public function findOneByServiceKey($serviceKey)
     {
         return $this->findOneBy(array('serviceKey' => $serviceKey));
+    }
+
+    /**
+     * @param ServiceConfig $serviceConfig
+     */
+    public function update(ServiceConfig $serviceConfig)
+    {
+        $dm = $this->getDocumentManager();
+        $dm->persist($serviceConfig);
+        $dm->flush();
     }
 }

@@ -4,7 +4,9 @@ namespace Itkg\ConsumerBundle\Manager;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Itkg\Consumer\Service\Service;
+use Itkg\ConsumerBundle\Model\ServiceConfig;
 use Itkg\ConsumerBundle\Repository\ServiceConfigRepositoryInterface;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * @author Pascal DENIS <pascal.denis@businessdecision.com>
@@ -20,13 +22,28 @@ class ServiceManager implements ServiceManagerInterface
      * @var ServiceConfigRepositoryInterface
      */
     protected $repository;
+
     /**
-     * Constructor
+     * @var string
      */
-    public function __construct(ServiceConfigRepositoryInterface $repository)
+    protected $serviceConfigClass;
+
+    /**
+     * @var string
+     */
+    protected $clientConfigClass;
+
+    /**
+     * @param ServiceConfigRepositoryInterface $repository
+     * @param string $serviceConfigClass
+     * @param string $clientConfigClass
+     */
+    public function __construct(ServiceConfigRepositoryInterface $repository, $serviceConfigClass, $clientConfigClass)
     {
         $this->services = new ArrayCollection();
         $this->repository = $repository;
+        $this->serviceConfigClass = $serviceConfigClass;
+        $this->clientConfigClass = $clientConfigClass;
     }
 
     /**
@@ -50,11 +67,11 @@ class ServiceManager implements ServiceManagerInterface
     }
 
     /**
-     * @param Service $service
+     * @param ServiceConfig $serviceConfig
      */
-    public function updateService(Service $service)
+    public function updateServiceConfig(ServiceConfig $serviceConfig)
     {
-        // TODO: Implement updateService() method.
+        $this->repository->update($serviceConfig);
     }
 
     /**
@@ -62,16 +79,53 @@ class ServiceManager implements ServiceManagerInterface
      *
      * @param string $key
      *
-     * @return \Itkg\Consumer\Service\Service|null
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     *
+     * @return \Itkg\Consumer\Service\Service
      */
     public function findService($key)
     {
-        return $this->services->filter(
-            function(Service $service) use ($key)  {
-                if ($service->getIdentifier() == $key) {
-                    return $service;
-                }
+        foreach ($this->services as $service) {
+            if ($service->getIdentifier() === $key) {
+                return $service;
             }
+        }
+
+        throw new NotFoundHttpException(
+            sprintf('service %s does not exist', $key)
         );
+    }
+
+    /**
+     * @param string $key
+     *
+     * @return \Itkg\ConsumerBundle\Document\ServiceConfig
+     */
+    public function findServiceConfig($key)
+    {
+        $config = $this->repository->findOneByServiceKey($key);
+
+        if (null == $config) {
+            $service = $this->findService($key);
+            $config = $this->createNewServiceConfig();
+
+            $config->fromOptions($service->getOptions());
+            $config->getClientConfig()->fromOptions($service->getClient()->getNormalizedOptions());
+            $config->setServiceKey($key);
+        }
+
+        return $config;
+    }
+
+    /**
+     * @return ServiceConfig
+     */
+    public function createNewServiceConfig()
+    {
+        $serviceConfigClass = $this->serviceConfigClass;
+        $clientConfigClass  = $this->clientConfigClass;
+        $serviceConfig = new $serviceConfigClass;
+
+        return $serviceConfig->setClientConfig(new $clientConfigClass());
     }
 }

@@ -5,9 +5,13 @@ parameters:
 services:
     itkg_consumer.type.service_config:
         class: %itkg_consumer.type.service_config.class%
+        arguments:
+            - %itkg_consumer.model.service_config.class%
         tags:
-            - { name: form.type, alias: service_config }
+            - { name: form.type, alias: itkg_consumer_service_config }
     itkg_consumer.type.client_config:
         class: %itkg_consumer.type.client_config.class%
+        arguments:
+            - %itkg_consumer.model.client_config.class%
         tags:
-            - { name: form.type, alias: client_config }
+            - { name: form.type, alias: itkg_consumer_client_config }

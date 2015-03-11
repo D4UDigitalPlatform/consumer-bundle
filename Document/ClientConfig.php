@@ -13,13 +13,6 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 class ClientConfig extends BaseClientConfig
 {
     /**
-     * @var string $id
-     *
-     * @ODM\Id
-     */
-    protected $id;
-
-    /**
      * @var string
      *
      * @ODM\Field(type="string")
@@ -52,12 +45,12 @@ class ClientConfig extends BaseClientConfig
      *
      * @ODM\Field(type="string")
      */
-    protected $login;
+    protected $authLogin;
 
     /**
      * @var string
      *
      * @ODM\Field(type="string")
      */
-    protected $password;
+    protected $authPassword;
 }

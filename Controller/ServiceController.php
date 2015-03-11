@@ -2,11 +2,12 @@
 
 namespace Itkg\ConsumerBundle\Controller;
 
+use Itkg\ConsumerBundle\Document\ServiceConfig;
 use Itkg\ConsumerBundle\Manager\ServiceManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @author Pascal DENIS <pascal.denis@businessdecision.com>
@@ -26,24 +27,29 @@ class ServiceController extends Controller
         );
     }
 
-    public function updateAction(Request $request)
+    public function updateAction(Request $request, $id)
     {
         $form = $this->createForm(
-            $this->get('itkg_consumer.type.service_config')
+            'itkg_consumer_service_config',
+            $this->getManager()->findServiceConfig($id)
         );
 
         $form->handleRequest($request);
 
         if ($form->isValid()) {
             // Save instance
-            // $this->getManager()->updateService();
+            $this->getManager()->updateServiceConfig($form->getData());
             $this->get('session')->getFlashBag()->add('success', 'Service updated successfully');
 
             return new RedirectResponse($this->generateUrl('itkg_consumer.service.list'));
         }
 
-        return array(
-            'form' => $form
+        return $this->render(
+            'ItkgConsumerBundle:Service:update.html.twig',
+            array(
+                'form' => $form->createView(),
+                'id'   => $id
+            )
         );
     }
 

@@ -19,6 +19,13 @@ class ServiceConfig extends BaseServiceConfig
      *
      * @var string
      */
+    protected $id;
+
+    /**
+     * @var string
+     *
+     * @ODM\Field(type="string")
+     */
     protected $serviceKey;
 
     /**
@@ -45,7 +52,7 @@ class ServiceConfig extends BaseServiceConfig
     /**
      * @var ClientConfig
      *
-     * @ODM\ReferenceOne(targetDocument="Itkg\ConsumerBundle\Document\ClientConfig")
+     * @ODM\EmbedOne(targetDocument="ClientConfig")
      */
     protected $clientConfig;
 }

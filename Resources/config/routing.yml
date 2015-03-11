@@ -6,12 +6,10 @@ itkg_consumer.service.edit:
     path: /service/edit/{id}
     defaults: { _controller: ItkgConsumerBundle:Service:update }
     requirements:
-        _method: POST
-        id: \d+
+        _method: GET
 
 itkg_consumer.service.update:
     path: /service/update/{id}
     defaults: { _controller: ItkgConsumerBundle:Service:update }
     requirements:
         _method: POST
-        id: \d+

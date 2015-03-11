@@ -27,12 +27,12 @@ abstract class ClientConfig
     /**
      * @var string
      */
-    protected $login;
+    protected $authLogin;
 
     /**
      * @var string
      */
-    protected $password;
+    protected $authPassword;
 
     /**
      * @var int
@@ -47,8 +47,8 @@ abstract class ClientConfig
     public function toOptions()
     {
         return array(
-            'login'          => $this->login,
-            'password'       => $this->password,
+            'auth_login'     => $this->authLogin,
+            'auth_password'  => $this->authPassword,
             'proxy_host'     => $this->proxyHost,
             'proxy_port'     => $this->proxyPort,
             'proxy_login'    => $this->proxyLogin,
@@ -58,13 +58,31 @@ abstract class ClientConfig
     }
 
     /**
-     * @param string $login
+     * @param array $options
      *
      * @return $this
      */
-    public function setLogin($login)
+    public function fromOptions(array $options)
     {
-        $this->login = $login;
+        $this->authLogin     = $options['auth_login'];
+        $this->authPassword  = $options['auth_password'];
+        $this->proxyHost     = $options['proxy_host'];
+        $this->proxyPort     = $options['proxy_port'];
+        $this->proxyLogin    = $options['proxy_login'];
+        $this->proxyPassword = $options['proxy_password'];
+        $this->timeout       = $options['timeout'];
+
+        return $this;
+    }
+
+    /**
+     * @param string $authLogin
+     *
+     * @return $this
+     */
+    public function setAuthLogin($authLogin)
+    {
+        $this->authLogin = $authLogin;
 
         return $this;
     }
@@ -72,19 +90,19 @@ abstract class ClientConfig
     /**
      * @return string
      */
-    public function getLogin()
+    public function getAuthLogin()
     {
-        return $this->login;
+        return $this->authLogin;
     }
 
     /**
-     * @param string $password
+     * @param string $authPassword
      *
      * @return $this
      */
-    public function setPassword($password)
+    public function setAuthPassword($authPassword)
     {
-        $this->password = $password;
+        $this->authPassword = $authPassword;
 
         return $this;
     }
@@ -92,10 +110,11 @@ abstract class ClientConfig
     /**
      * @return string
      */
-    public function getPassword()
+    public function getAuthPassword()
     {
-        return $this->password;
+        return $this->authPassword;
     }
+
 
     /**
      * @param string $proxyHost

@@ -50,6 +50,21 @@ abstract class ServiceConfig
     }
 
     /**
+     * @param array $options
+     *
+     * @return $this
+     */
+    public function fromOptions(array $options)
+    {
+        $this->responseFormat = $options['response_format'];
+        $this->responseType = $options['response_type'];
+        $this->cacheTtl = $options['cache_ttl'];
+        $this->disabled = $options['disabled'];
+
+        return $this;
+    }
+
+    /**
      * @return bool
      */
     public function isDisabled()

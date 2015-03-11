@@ -6,3 +6,5 @@ services:
         class: %itkg_consumer.manager.service.class%
         arguments:
             - @itkg_consumer.repository.service_config
+            - %itkg_consumer.model.service_config.class%
+            - %itkg_consumer.model.client_config.class%
