@@ -29,12 +29,13 @@ class ClientConfigType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('authLogin');
-        $builder->add('authPassword');
-        $builder->add('proxyHost');
-        $builder->add('proxyPort');
-        $builder->add('proxyLogin');
-        $builder->add('proxyPassword');
+        $builder->add('baseUrl');
+        $builder->add('authLogin', 'text', array('required' => false));
+        $builder->add('authPassword', 'text', array('required' => false));
+        $builder->add('proxyHost', 'text', array('required' => false));
+        $builder->add('proxyPort', 'text', array('required' => false));
+        $builder->add('proxyLogin', 'text', array('required' => false));
+        $builder->add('proxyPassword', 'text', array('required' => false));
     }
 
     /**

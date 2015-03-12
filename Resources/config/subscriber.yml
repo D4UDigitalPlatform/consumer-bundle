@@ -8,6 +8,8 @@ parameters:
 services:
     itkg_consumer.subscriber.cache:
         class: %itkg_consumer.subscriber.cache.class%
+        arguments:
+            - @event_dispatcher
         tags:
             - { name: kernel.event_subscriber }
     itkg_consumer.subscriber.logger:
@@ -16,6 +18,8 @@ services:
             - { name: kernel.event_subscriber }
     itkg_consumer.subscriber.deserializer:
         class: %itkg_consumer.subscriber.deserializer.class%
+        arguments:
+            - @jms_serializer
         tags:
             - { name: kernel.event_subscriber }
     itkg_consumer.subscriber.authentication:

@@ -32,8 +32,9 @@ class ServiceConfigType extends AbstractType
         $builder->add('serviceKey');
         $builder->add('responseType');
         $builder->add('responseFormat');
-        $builder->add('cacheTtl');
-        $builder->add('disabled', 'checkbox');
+        $builder->add('cacheTtl', null, array('required' => false));
+
+        $builder->add('disabled', 'checkbox', array('required' => false));
         $builder->add('clientConfig', 'itkg_consumer_client_config');
     }
 

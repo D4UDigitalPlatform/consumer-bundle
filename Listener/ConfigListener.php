@@ -39,11 +39,9 @@ class ConfigListener implements EventSubscriberInterface
             // Inject service configuration & client configuration
 
             $service->configure($serviceConfig->toOptions());
-            $service->getClient()->setOptions(
+            $service->getClient()->setNormalizedOptions(
                 $serviceConfig->getClientConfig()->toOptions()
             );
-
-            // @TODO : Request override conf ?
         }
     }
 

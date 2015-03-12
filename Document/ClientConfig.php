@@ -53,4 +53,11 @@ class ClientConfig extends BaseClientConfig
      * @ODM\Field(type="string")
      */
     protected $authPassword;
+
+    /**
+     * @var string
+     *
+     * @ODM\Field(type="string")
+     */
+    protected $baseUrl;
 }
