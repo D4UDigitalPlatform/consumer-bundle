@@ -1,7 +1,12 @@
-{{ form_start(form, {'action': path('itkg_consumer.service.update', {'id': id })}) }}
-    {{ form_errors(form) }}
+{% extends '::base.html.twig' %}
+{% block body %}
 
-    {{ form_row(form) }}
+    {{ form_start(form, {'action': path('itkg_consumer.service.update', {'id': id })}) }}
+        {{ form_errors(form) }}
 
-<input type="submit" />
-{{ form_end(form) }}
+        {{ form_row(form) }}
+
+    <input type="submit" />
+    {{ form_end(form) }}
+
+{% endblock %}

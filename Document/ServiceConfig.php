@@ -55,4 +55,11 @@ class ServiceConfig extends BaseServiceConfig
      * @ODM\EmbedOne(targetDocument="ClientConfig")
      */
     protected $clientConfig;
+
+    /**
+     * @var bool
+     *
+     * @ODM\Field(type="boolean")
+     */
+    protected $disabled = false;
 }

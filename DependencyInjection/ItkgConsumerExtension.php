@@ -31,6 +31,7 @@ class ItkgConsumerExtension extends Extension
         $loader->load('manager.yml');
         $loader->load('form.yml');
         $loader->load('model.yml');
+        $loader->load('services.yml');
 
         if (isset($config['subscriber'])) {
 

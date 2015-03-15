@@ -45,7 +45,8 @@ abstract class ServiceConfig
             'response_type'   => $this->responseType,
             'response_format' => $this->responseFormat,
             'cache_ttl'       => $this->cacheTtl,
-            'disabled'        => $this->disabled
+            'disabled'        => $this->disabled,
+            'identifier'      => $this->serviceKey
         );
     }
 

@@ -29,7 +29,6 @@ class ServiceCompilerPass implements CompilerPassInterface
     public function process(ContainerBuilder $container)
     {
         $services = $container->findTaggedServiceIds('itkg_consumer.service');
-
         $definition = $container->getDefinition('itkg_consumer.manager.service');
         foreach (array_keys($services) as $id) {
             // Add test to the test manager

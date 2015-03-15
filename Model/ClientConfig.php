@@ -40,6 +40,11 @@ abstract class ClientConfig
     protected $timeout;
 
     /**
+     * @var string
+     */
+    protected $baseUrl;
+
+    /**
      * Array representation of service config
      *
      * @return array
@@ -53,7 +58,8 @@ abstract class ClientConfig
             'proxy_port'     => $this->proxyPort,
             'proxy_login'    => $this->proxyLogin,
             'proxy_password' => $this->proxyPassword,
-            'timeout'        => $this->timeout
+            'timeout'        => $this->timeout,
+            'base_url'       => $this->baseUrl
         );
     }
 
@@ -71,10 +77,30 @@ abstract class ClientConfig
         $this->proxyLogin    = $options['proxy_login'];
         $this->proxyPassword = $options['proxy_password'];
         $this->timeout       = $options['timeout'];
+        $this->baseUrl       = $options['base_url'];
 
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getBaseUrl()
+    {
+        return $this->baseUrl;
+    }
+
+    /**
+     * @param string $baseUrl
+     *
+     * @return $this
+     */
+    public function setBaseUrl($baseUrl)
+    {
+        $this->baseUrl = $baseUrl;
+
+        return $this;
+    }
     /**
      * @param string $authLogin
      *
