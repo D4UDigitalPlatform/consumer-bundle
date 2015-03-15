@@ -1,0 +1,4 @@
+parameters:
+    itkg_consumer.service.class: Itkg\Consumer\Service\Service
+    itkg_consumer.client.rest.class: Itkg\Consumer\Client\RestClient
+    itkg_consumer.client.soap.class: Itkg\Consumer\Client\SoapClient
