@@ -27,6 +27,9 @@ class ConfigListener implements EventSubscriberInterface
         $this->repository = $repository;
     }
 
+    /**
+     * @param ServiceEvent $event
+     */
     public function onServiceRequest(ServiceEvent $event)
     {
         $service = $event->getService();
@@ -38,12 +41,13 @@ class ConfigListener implements EventSubscriberInterface
         if ($serviceConfig = $this->repository->findOneByServiceKey($service->getIdentifier())) {
             // Inject service configuration & client configuration
 
-            $service->configure($serviceConfig->toOptions());
+            $service->configure(array_merge($service->getOptions(), $serviceConfig->toOptions()));
             $service->getClient()->setOptions(
-                $serviceConfig->getClientConfig()->toOptions()
+                array_merge(
+                    $service->getClient()->getOptions(),
+                    $serviceConfig->getClientConfig()->toOptions()
+                )
             );
-
-            // @TODO : Request override conf ?
         }
     }
 
