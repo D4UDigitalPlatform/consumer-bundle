@@ -86,6 +86,7 @@ class ServiceManager implements ServiceManagerInterface
     public function findService($key)
     {
         foreach ($this->services as $service) {
+            /** @var Service $service */
             if ($service->getIdentifier() === $key) {
                 return $service;
             }
@@ -124,6 +125,7 @@ class ServiceManager implements ServiceManagerInterface
     {
         $serviceConfigClass = $this->serviceConfigClass;
         $clientConfigClass  = $this->clientConfigClass;
+        /** @var ServiceConfig $serviceConfig */
         $serviceConfig = new $serviceConfigClass;
 
         return $serviceConfig->setClientConfig(new $clientConfigClass());

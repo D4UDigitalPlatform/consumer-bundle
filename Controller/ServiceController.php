@@ -15,6 +15,8 @@ use Symfony\Component\HttpFoundation\Request;
 class ServiceController extends Controller
 {
     /**
+     * List of services
+     *
      * @return array
      */
     public function indexAction()
@@ -27,6 +29,14 @@ class ServiceController extends Controller
         );
     }
 
+    /**
+     * Edit / Update action
+     *
+     * @param Request $request
+     * @param $id
+     *
+     * @return RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function updateAction(Request $request, $id)
     {
         $form = $this->createForm(
@@ -54,6 +64,8 @@ class ServiceController extends Controller
     }
 
     /**
+     * Get service manager
+     *
      * @return ServiceManagerInterface
      */
     protected function getManager()

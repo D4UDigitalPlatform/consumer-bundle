@@ -4,6 +4,7 @@ namespace Itkg\ConsumerBundle\Listener;
 
 use Itkg\Consumer\Event\ServiceEvent;
 use Itkg\Consumer\Event\ServiceEvents;
+use Itkg\Consumer\Service\Service;
 use Itkg\Consumer\Service\ServiceConfigurableInterface;
 use Itkg\ConsumerBundle\Repository\ServiceConfigRepositoryInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -32,6 +33,7 @@ class ConfigListener implements EventSubscriberInterface
      */
     public function onServiceRequest(ServiceEvent $event)
     {
+        /** @var Service $service */
         $service = $event->getService();
 
         if (!$service instanceof ServiceConfigurableInterface) {
@@ -42,6 +44,7 @@ class ConfigListener implements EventSubscriberInterface
             // Inject service configuration & client configuration
 
             $service->configure(array_merge($service->getOptions(), $serviceConfig->toOptions()));
+
             $service->getClient()->setNormalizedOptions(
                 array_merge(
                     $service->getClient()->getOptions(),
