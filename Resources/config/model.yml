@@ -1,0 +1,3 @@
+parameters:
+    itkg_consumer.model.service_config.class: Itkg\ConsumerBundle\Document\ServiceConfig
+    itkg_consumer.model.client_config.class: Itkg\ConsumerBundle\Document\ClientConfig

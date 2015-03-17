@@ -1,0 +1,15 @@
+itkg_consumer.service.list:
+    path: /services
+    defaults: { _controller: ItkgConsumerBundle:Service:index }
+
+itkg_consumer.service.edit:
+    path: /service/edit/{id}
+    defaults: { _controller: ItkgConsumerBundle:Service:update }
+    requirements:
+        _method: GET
+
+itkg_consumer.service.update:
+    path: /service/update/{id}
+    defaults: { _controller: ItkgConsumerBundle:Service:update }
+    requirements:
+        _method: POST

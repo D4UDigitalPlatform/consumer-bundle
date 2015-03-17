@@ -1,0 +1,25 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Identifier
+                </th>
+                <th>Action(s)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for service in services %}
+                <tr>
+                    <td>{{ service.identifier }}</td>
+                    <td>
+                        <a href="{{ path('itkg_consumer.service.edit', {'id': service.identifier}) }}">Edit</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

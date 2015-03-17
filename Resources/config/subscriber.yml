@@ -1,0 +1,38 @@
+parameters:
+    itkg_consumer.subscriber.cache.class: Itkg\Consumer\Listener\CacheListener
+    itkg_consumer.subscriber.logger.class: Itkg\Consumer\Listener\LoggerListener
+    itkg_consumer.subscriber.deserializer.class: Itkg\Consumer\Listener\DeserializerListener
+    itkg_consumer.subscriber.authentication.class: Itkg\Consumer\Listener\AuthenticationListener
+    itkg_consumer.subscriber.access.class: Itkg\Consumer\Listener\AccessListener
+    itkg_consumer.subscriber.config.class: Itkg\ConsumerBundle\Listener\ConfigListener
+services:
+    itkg_consumer.subscriber.cache:
+        class: %itkg_consumer.subscriber.cache.class%
+        arguments:
+            - @event_dispatcher
+        tags:
+            - { name: kernel.event_subscriber }
+    itkg_consumer.subscriber.logger:
+        class: %itkg_consumer.subscriber.logger.class%
+        tags:
+            - { name: kernel.event_subscriber }
+    itkg_consumer.subscriber.deserializer:
+        class: %itkg_consumer.subscriber.deserializer.class%
+        arguments:
+            - @jms_serializer
+        tags:
+            - { name: kernel.event_subscriber }
+    itkg_consumer.subscriber.authentication:
+        class: %itkg_consumer.subscriber.authentication.class%
+        tags:
+            - { name: kernel.event_subscriber }
+    itkg_consumer.subscriber.access:
+            class: %itkg_consumer.subscriber.access.class%
+            tags:
+                - { name: kernel.event_subscriber }
+    itkg_consumer.subscriber.config:
+            class: %itkg_consumer.subscriber.config.class%
+            arguments:
+                - @itkg_consumer.repository.service_config
+            tags:
+                - { name: kernel.event_subscriber }
