@@ -2,6 +2,8 @@
 
 namespace Itkg\ConsumerBundle\Model;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 abstract class ServiceConfig
 {
     /**
@@ -33,6 +35,8 @@ abstract class ServiceConfig
      * @var bool
      */
     protected $disabled = false;
+
+
 
     /**
      * Array representation of service config

@@ -24,28 +24,28 @@ class ServiceConfig extends BaseServiceConfig
     /**
      * @var string
      *
-     * @ODM\Field(type="string")
+     * @ODM\Field(type="string", nullable=false)
      */
     protected $serviceKey;
 
     /**
      * @var string
      *
-     * @ODM\Field(type="string")
+     * @ODM\Field(type="string", nullable=false)
      */
     protected $responseType;
 
     /**
      * @var string
      *
-     * @ODM\Field(type="string")
+     * @ODM\Field(type="string", nullable=false)
      */
     protected $responseFormat;
 
     /**
      * @var string
      *
-     * @ODM\Field(type="int")
+     * @ODM\Field(type="int", nullable=true)
      */
     protected $cacheTtl;
 
