@@ -106,7 +106,7 @@ class ServiceManager implements ServiceManagerInterface
     {
         $config = $this->repository->findOneByServiceKey($key);
 
-        if (null == $config) {
+        if (null === $config) {
             $service = $this->findService($key);
             $config = $this->createNewServiceConfig();
 

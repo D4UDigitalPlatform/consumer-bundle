@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: user
- * Date: 06/03/15
- * Time: 15:40
- */
 
 namespace Itkg\ConsumerBundle\DependencyInjection\Compiler;
 
