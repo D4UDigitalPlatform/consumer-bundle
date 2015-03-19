@@ -2,9 +2,7 @@
 
 namespace Itkg\ConsumerBundle\Controller;
 
-use Itkg\ConsumerBundle\Document\ServiceConfig;
 use Itkg\ConsumerBundle\Manager\ServiceManagerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
