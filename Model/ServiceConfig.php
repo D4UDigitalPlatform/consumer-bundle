@@ -2,8 +2,6 @@
 
 namespace Itkg\ConsumerBundle\Model;
 
-use Symfony\Component\Validator\Constraints as Assert;
-
 abstract class ServiceConfig
 {
     /**
