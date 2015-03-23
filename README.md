@@ -19,9 +19,7 @@ If you use composer, add ItkgConsumerBundle bundle as a dependency to the compos
 ```json
 
     "require": {
-        ...
         "itkg/consumer-bundle": "dev-master"
-        ...
     },
 
 ```
@@ -45,7 +43,8 @@ If you use composer, add ItkgConsumerBundle bundle as a dependency to the compos
 
 * Activate bundle config in application's config.yml file by addng :
 
-```php
+
+```yaml
 
 itkg_consumer: ~
 
