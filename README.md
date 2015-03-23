@@ -91,6 +91,8 @@ $myService = $container
 
 ## Todo 
 
-- Debug utilities
-- WS profiling
-- Improve doc
+* Add tests
+* Debug utilities
+* WS profiling
+* Improve doc
+* Add more tests
