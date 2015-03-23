@@ -83,7 +83,9 @@ With specific "itkg_consumer.service" tag, service will be automatically loaded 
 
 ```php
 
-myService = $container->get('itkg_consumer.manager.service')->find('my_service_identifier');
+myService = $container
+    ->get('itkg_consumer.manager.service')
+    ->find('my_service_identifier');
 
 ```
 
