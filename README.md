@@ -61,7 +61,7 @@ ItkgConsumerBundle:
 ```
 ## Usage
 
-Service definition example
+### Service definition example
 
 ```yaml
 
@@ -79,8 +79,16 @@ my_service:
 
 With specific "itkg_consumer.service" tag, service will be automatically loaded in service list UI
 
+### Getting service from container
+
+```php
+
+myService = $container->get('itkg_consumer.manager.service')->find('my_service_identifier');
+
+```
 
 ## Todo 
 
 - Debug utilities
 - WS profiling
+- Improve doc
