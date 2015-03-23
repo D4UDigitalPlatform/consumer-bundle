@@ -6,7 +6,7 @@ WS Consumer Bundle on top
 [![Code Coverage](https://scrutinizer-ci.com/g/itkg/consumer-bundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/itkg/consumer-bundle/?branch=master)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/e81bf9ea-c76b-4369-8bd5-5646b95262a9/small.png)](https://insight.sensiolabs.com/projects/e81bf9ea-c76b-4369-8bd5-5646b95262a9)
 
-This bundle provide some utilities on top of Itkg\Consumer library
+This bundle provide some utilities on top of [itkg-consumer library](https://github.com/itkg/consumer/tree/2.0) 
 * Consumer Service definition
 * Simple UI to configure Consumer services (proxy, authentication, action / desactivation, cache, etc.)
 
