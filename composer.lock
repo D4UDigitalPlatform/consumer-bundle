@@ -1015,12 +1015,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/D4UDigitalPlatform/itkg-consumer.git",
-                "reference": "9e4b069e9192c2d37749e4ebd093ea2bb149e007"
+                "reference": "89df8827ce2f35ee806571953d60e9dd6b27776a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/D4UDigitalPlatform/itkg-consumer/zipball/9e4b069e9192c2d37749e4ebd093ea2bb149e007",
-                "reference": "9e4b069e9192c2d37749e4ebd093ea2bb149e007",
+                "url": "https://api.github.com/repos/D4UDigitalPlatform/itkg-consumer/zipball/89df8827ce2f35ee806571953d60e9dd6b27776a",
+                "reference": "0d834cc9b82ca93576b6fa16134aed0d4d5ebaa9",
                 "shasum": ""
             },
             "require": {
@@ -1041,6 +1041,7 @@
                     "Itkg\\Consumer": "src"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1058,10 +1059,7 @@
                 "itkg",
                 "library"
             ],
-            "support": {
-                "source": "https://github.com/D4UDigitalPlatform/itkg-consumer/tree/master"
-            },
-            "time": "2017-03-15 14:08:30"
+            "time": "2017-01-30 09:25:13"
         },
         {
             "name": "itkg/core",
