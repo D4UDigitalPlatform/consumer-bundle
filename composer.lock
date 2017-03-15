@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "82718093f7db961ad78efef662befa9a",
-    "content-hash": "48a1988fd73cb93fb0bf021dffe20248",
+    "hash": "4c2835608e7350f853b14645e80bdd79",
+    "content-hash": "d2c4a5d3b652d8ce234796963b5f0379",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1015,12 +1015,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/D4UDigitalPlatform/itkg-consumer.git",
-                "reference": "0d834cc9b82ca93576b6fa16134aed0d4d5ebaa9"
+                "reference": "9e4b069e9192c2d37749e4ebd093ea2bb149e007"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/D4UDigitalPlatform/itkg-consumer/zipball/0d834cc9b82ca93576b6fa16134aed0d4d5ebaa9",
-                "reference": "0d834cc9b82ca93576b6fa16134aed0d4d5ebaa9",
+                "url": "https://api.github.com/repos/D4UDigitalPlatform/itkg-consumer/zipball/9e4b069e9192c2d37749e4ebd093ea2bb149e007",
+                "reference": "9e4b069e9192c2d37749e4ebd093ea2bb149e007",
                 "shasum": ""
             },
             "require": {
@@ -1061,19 +1061,19 @@
             "support": {
                 "source": "https://github.com/D4UDigitalPlatform/itkg-consumer/tree/master"
             },
-            "time": "2017-01-30 09:25:13"
+            "time": "2017-03-15 14:08:30"
         },
         {
             "name": "itkg/core",
             "version": "1.1.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/itkg/core.git",
+                "url": "https://github.com/D4UDigitalPlatform/itkg-core.git",
                 "reference": "e5e4efb05feb4d23b0df41f2b21fd095103e593b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itkg/core/zipball/e5e4efb05feb4d23b0df41f2b21fd095103e593b",
+                "url": "https://api.github.com/repos/D4UDigitalPlatform/itkg-core/zipball/e5e4efb05feb4d23b0df41f2b21fd095103e593b",
                 "reference": "e5e4efb05feb4d23b0df41f2b21fd095103e593b",
                 "shasum": ""
             },
