@@ -31,8 +31,6 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony":"~2",
-        "doctrine/mongodb-odm": "~1",
-        "doctrine/mongodb-odm-bundle" : "~3",
         "itkg/consumer": "dev-master",
         "symfony/proxy-manager-bridge" :"~2"
     },
